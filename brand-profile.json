@@ -1,0 +1,47 @@
+{
+  "name": "Imprenta 1177",
+  "tagline": "Impresión express en el corazón de Valparaíso",
+  "industry": "Impresión y diseño gráfico",
+  "location": "Plaza Aníbal Pinto 1177, Valparaíso",
+  "years_in_business": 18,
+  "positioning": "La imprenta de confianza en el centro de Valparaíso — rapidez, calidad y 18 años de oficio",
+  "audience": {
+    "primary": "Empresas y negocios locales de Valparaíso y alrededores que necesitan impresos corporativos, señalética y material publicitario",
+    "secondary": "Eventos (bodas, celebraciones, graduaciones) que requieren impresos personalizados",
+    "pain_points": [
+      "Necesitan rapidez — no pueden esperar días para sus impresos",
+      "Quieren calidad garantizada sin tener que revisar dos veces",
+      "Valoran el trato cercano y la asesoría de alguien que realmente sabe"
+    ]
+  },
+  "unique_value": [
+    "18 años de experiencia en el rubro",
+    "Ubicación céntrica en Plaza Aníbal Pinto — fácil acceso, retiro rápido",
+    "Servicio express — trabajan con plazos ajustados",
+    "Catálogo completo: desde una tarjeta hasta una gigantografía de 6 metros",
+    "Diseño gráfico integrado — no necesitas venir con archivo listo"
+  ],
+  "tone": {
+    "voice": "Cercano, directo, experto sin sonar técnico. Como el maestro del barrio que sabe más que nadie pero te habla sin humos.",
+    "do": ["Hablar en términos concretos", "Usar el 'tú'", "Mencionar Valparaíso con orgullo", "Citar tiempos y resultados reales"],
+    "dont": ["Slogan corporativo genérico", "Términos técnicos de preprensa sin explicar", "Frases como 'soluciones integrales' o 'potencia tu marca'"]
+  },
+  "visual_direction": "CMYK Print-craft",
+  "north_stars": [
+    "El azul actual del sitio se convierte en el Cyan del proceso CMYK — el color de la tinta de impresión",
+    "Magenta como acento de acción (botones, highlights)",
+    "Amarillo como detalle de energía (subrayados, marcas de registro)",
+    "Negro tinta como base tipográfica fuerte",
+    "Crema/papel como fondo — no blanco frío"
+  ],
+  "contact": {
+    "phone": "+56 32 223 67 26",
+    "phone_design": "32 223 26 69",
+    "email": "imprenta1177@gmail.com",
+    "whatsapp": "+56322236726",
+    "hours": {
+      "lun_mar_vie": "09:00 – 17:30",
+      "mie_jue": "09:00 – 18:30"
+    }
+  }
+}
