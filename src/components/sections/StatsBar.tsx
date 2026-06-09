@@ -41,13 +41,13 @@ function Counter({
 
 export function StatsBar() {
   return (
-    <section className="bg-ink py-16">
+    <section className="bg-paper border-y border-border py-16">
       <div className="mx-auto max-w-5xl px-6">
-        <div className="grid grid-cols-1 sm:grid-cols-3 divide-y sm:divide-y-0 sm:divide-x divide-paper/10">
+        <div className="grid grid-cols-1 sm:grid-cols-3 divide-y sm:divide-y-0 sm:divide-x divide-border">
           {METRICS.map((metric, i) => (
             <motion.div
               key={metric.label}
-              className="flex flex-col items-center text-center py-10 sm:py-6 px-8"
+              className="flex flex-col items-center text-center py-12 sm:py-8 px-8"
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-80px" }}
@@ -58,7 +58,7 @@ export function StatsBar() {
               }}
             >
               <p
-                className="font-display font-bold text-paper mb-2 tabular-nums"
+                className="font-serif font-normal text-ink mb-0 tabular-nums leading-none"
                 style={{ fontSize: "clamp(3rem, 1.5rem + 4vw, 5.5rem)" }}
               >
                 <Counter
@@ -67,7 +67,8 @@ export function StatsBar() {
                   prefix={metric.prefix}
                 />
               </p>
-              <p className="font-mono text-xs uppercase tracking-widest text-cyan">
+              <div className="w-8 h-0.5 bg-cyan my-3" aria-hidden />
+              <p className="font-mono text-[11px] uppercase tracking-widest text-ink-soft/60">
                 {metric.label}
               </p>
             </motion.div>

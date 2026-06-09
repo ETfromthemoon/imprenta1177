@@ -22,9 +22,10 @@ export function WhatsAppCTA({
         target="_blank"
         rel="noopener noreferrer"
         className={cn(
-          "group inline-flex items-center gap-2.5 rounded-full font-display font-semibold",
-          "bg-magenta text-paper shadow-lg shadow-magenta/30",
-          "transition-all duration-200 hover:bg-magenta-light hover:shadow-magenta/50 hover:scale-[1.02] active:scale-[0.97]",
+          "group inline-flex items-center gap-2.5 rounded-[10px] font-sans font-semibold",
+          "bg-magenta text-paper",
+          "shadow-[0_4px_24px_-4px_rgba(220,0,120,0.35),0_1px_0_0_rgba(220,0,120,0.15)]",
+          "transition-all duration-200 hover:bg-magenta-light hover:shadow-[0_6px_32px_-4px_rgba(220,0,120,0.5),0_1px_0_0_rgba(220,0,120,0.2)] hover:scale-[1.02] active:scale-[0.97]",
           "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-magenta focus-visible:ring-offset-2",
           size === "sm" && "px-5 py-2.5 text-sm",
           size === "md" && "px-7 py-3.5 text-base",

@@ -3,18 +3,6 @@ import { motion } from "motion/react";
 import { SERVICES } from "@/lib/constants";
 import { WhatsAppCTA } from "./WhatsAppCTA";
 
-const accentBorder = {
-  cyan: "border-cyan",
-  magenta: "border-magenta",
-  yellow: "border-yellow",
-} as const;
-
-const accentBg = {
-  cyan: "bg-cyan/5",
-  magenta: "bg-magenta/5",
-  yellow: "bg-yellow/5",
-} as const;
-
 const accentText = {
   cyan: "text-cyan",
   magenta: "text-magenta",
@@ -23,75 +11,69 @@ const accentText = {
 
 export function Services() {
   return (
-    <section id="servicios" className="py-[var(--spacing-section)] px-6 bg-paper-muted">
+    <section id="servicios" className="py-[var(--spacing-section)] px-6 bg-paper">
       <div className="mx-auto max-w-6xl">
+        {/* Header */}
         <motion.div
-          className="mb-14 max-w-2xl"
+          className="mb-16 max-w-2xl"
           initial={{ opacity: 0, y: 24 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-80px" }}
           transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
         >
-          <p className="mb-3 font-mono text-xs uppercase tracking-widest text-cyan">
+          <p className="mb-4 font-mono text-xs uppercase tracking-widest text-cyan">
             ¿Qué hacemos?
           </p>
           <h2
-            className="font-display font-bold text-ink"
-            style={{ fontSize: "clamp(2rem, 1rem + 3vw, 3.5rem)" }}
+            className="font-serif font-normal leading-[0.90] text-ink"
+            style={{ fontSize: "clamp(2.5rem, 1rem + 4vw, 4rem)" }}
           >
             Servicios de imprenta
           </h2>
         </motion.div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+        {/* Editorial service list — no cards, type hierarchy only */}
+        <div className="border-t border-border">
           {SERVICES.map((service, i) => (
             <motion.div
               key={service.id}
-              className={[
-                "rounded-xl border border-border p-6 border-l-4 transition-shadow",
-                accentBorder[service.accentColor],
-                accentBg[service.accentColor],
-                service.size === "large" ? "sm:col-span-2 lg:col-span-2" : "",
-              ]
-                .filter(Boolean)
-                .join(" ")}
-              initial={{ opacity: 0, y: 20 }}
+              className="group border-b border-border py-8 grid grid-cols-[90px_1fr] sm:grid-cols-[140px_1fr] gap-6 items-start hover:bg-paper-muted transition-colors duration-200"
+              initial={{ opacity: 0, y: 16 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-60px" }}
               transition={{
-                delay: i * 0.06,
+                delay: i * 0.05,
                 duration: 0.5,
                 ease: [0.22, 1, 0.36, 1],
               }}
-              whileHover={{ y: -3, transition: { duration: 0.18 } }}
             >
-              <div
-                className={[
-                  "w-10 h-10 rounded mb-4 flex items-center justify-center border",
-                  accentBg[service.accentColor],
-                  accentBorder[service.accentColor],
-                ]
-                  .filter(Boolean)
-                  .join(" ")}
-              >
+              {/* Mark — accent typographic label */}
+              <div className="pt-1">
                 <span
-                  className={`font-mono text-[10px] font-bold tracking-wider ${accentText[service.accentColor]}`}
+                  className={`font-mono text-[11px] uppercase tracking-[0.18em] font-bold ${accentText[service.accentColor]}`}
                 >
                   {service.mark}
                 </span>
               </div>
-              <h3 className="font-display font-semibold text-lg text-ink mb-2">
-                {service.title}
-              </h3>
-              <p className="font-sans text-sm text-ink-soft leading-relaxed">
-                {service.description}
-              </p>
+
+              {/* Content */}
+              <div>
+                <h3
+                  className="font-serif font-normal text-ink mb-2 leading-tight group-hover:text-ink transition-colors"
+                  style={{ fontSize: "clamp(1.25rem, 1rem + 1.2vw, 1.75rem)" }}
+                >
+                  {service.title}
+                </h3>
+                <p className="font-sans text-[14px] text-ink-soft leading-relaxed max-w-lg">
+                  {service.description}
+                </p>
+              </div>
             </motion.div>
           ))}
         </div>
 
         <motion.div
-          className="mt-12 flex justify-center"
+          className="mt-14 flex justify-start"
           initial={{ opacity: 0, y: 12 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-60px" }}

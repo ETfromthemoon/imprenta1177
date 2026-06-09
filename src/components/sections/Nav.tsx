@@ -1,7 +1,6 @@
 "use client";
 import { useEffect, useState } from "react";
 import Link from "next/link";
-import { WhatsAppCTA } from "./WhatsAppCTA";
 
 const NAV_LINKS = [
   { href: "#servicios", label: "Servicios" },
@@ -22,26 +21,24 @@ export function Nav() {
 
   return (
     <header
-      className={`fixed top-0 inset-x-0 z-50 transition-all duration-300 ${
-        scrolled
-          ? "bg-paper/90 backdrop-blur-md border-b border-border shadow-sm"
-          : "bg-transparent"
+      className={`fixed top-0 inset-x-0 z-50 bg-paper transition-[border-color] duration-300 ${
+        scrolled ? "border-b border-border" : "border-b border-transparent"
       }`}
     >
-      <nav className="mx-auto flex max-w-7xl items-center justify-between px-6 py-4">
-        <Link
-          href="/"
-          className="font-display font-bold text-xl text-ink tracking-tight hover:text-cyan transition-colors"
-        >
-          Imprenta <span className="text-cyan">1177</span>
+      <nav className="mx-auto flex max-w-7xl items-center justify-between px-6 sm:px-12 py-[15px]">
+        {/* Wordmark */}
+        <Link href="/" className="font-display font-bold text-[14px] tracking-tight leading-none">
+          <span className="text-ink">Imprenta</span>
+          <span className="text-cyan"> 1177</span>
         </Link>
 
+        {/* Desktop nav links */}
         <ul className="hidden md:flex items-center gap-8">
           {NAV_LINKS.map((link) => (
             <li key={link.href}>
               <Link
                 href={link.href}
-                className="font-sans text-sm text-ink-soft hover:text-ink transition-colors"
+                className="font-sans text-[14px] text-ink-soft hover:text-ink transition-colors hover:underline underline-offset-4"
               >
                 {link.label}
               </Link>
@@ -49,38 +46,28 @@ export function Nav() {
           ))}
         </ul>
 
-        <div className="hidden md:block">
-          <WhatsAppCTA label="Cotizar" size="sm" />
+        {/* Right: Menú label + cyan mark */}
+        <div className="hidden md:flex items-center gap-2">
+          <span className="font-sans text-[14px] text-ink-soft">Menú</span>
+          <span className="text-cyan font-bold text-base leading-none select-none" aria-hidden>‖</span>
         </div>
 
+        {/* Mobile toggle */}
         <button
           type="button"
           aria-label={menuOpen ? "Cerrar menú" : "Abrir menú"}
           aria-expanded={menuOpen}
           onClick={() => setMenuOpen((v) => !v)}
-          className="md:hidden p-2 text-ink rounded-md focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-magenta"
+          className="md:hidden flex items-center gap-2 text-ink focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan rounded-sm"
         >
-          <span className="sr-only">{menuOpen ? "Cerrar" : "Menú"}</span>
-          <svg width="22" height="22" viewBox="0 0 22 22" fill="none" aria-hidden>
-            {menuOpen ? (
-              <>
-                <line x1="3" y1="3" x2="19" y2="19" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
-                <line x1="19" y1="3" x2="3" y2="19" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
-              </>
-            ) : (
-              <>
-                <line x1="2" y1="6" x2="20" y2="6" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
-                <line x1="2" y1="11" x2="20" y2="11" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
-                <line x1="2" y1="16" x2="20" y2="16" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
-              </>
-            )}
-          </svg>
+          <span className="font-sans text-[14px]">Menú</span>
+          <span className="text-cyan font-bold leading-none" aria-hidden>‖</span>
         </button>
       </nav>
 
       {menuOpen && (
-        <div className="md:hidden bg-paper/95 backdrop-blur-md border-t border-border px-6 pb-6">
-          <ul className="flex flex-col gap-4 pt-4">
+        <div className="md:hidden bg-paper border-t border-border px-6 sm:px-12 pb-8">
+          <ul className="flex flex-col gap-5 pt-5">
             {NAV_LINKS.map((link) => (
               <li key={link.href}>
                 <Link
@@ -93,9 +80,6 @@ export function Nav() {
               </li>
             ))}
           </ul>
-          <div className="mt-6">
-            <WhatsAppCTA label="Cotizar ahora" size="md" className="w-full justify-center" />
-          </div>
         </div>
       )}
     </header>

@@ -19,7 +19,7 @@ export function Contact() {
             Cómo llegarnos
           </p>
           <h2
-            className="font-display font-bold text-paper"
+            className="font-serif font-normal leading-[0.90] text-paper"
             style={{ fontSize: "clamp(2rem, 1rem + 3vw, 3.5rem)" }}
           >
             Estamos en el centro de Valparaíso

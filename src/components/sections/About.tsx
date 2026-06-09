@@ -1,4 +1,5 @@
 "use client";
+import { motion } from "motion/react";
 import { RevealOnScroll } from "@/components/animations/RevealOnScroll";
 
 type InkSwatch = { bg: string; label: string; desc: string };
@@ -20,11 +21,22 @@ export function About() {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
           {/* Text */}
           <RevealOnScroll>
-            <p className="mb-3 font-mono text-xs uppercase tracking-widest text-cyan">
+            <p className="mb-4 font-mono text-xs uppercase tracking-widest text-cyan">
               Quiénes somos
             </p>
+
+            {/* Cyan tick */}
+            <motion.div
+              className="w-14 h-0.5 bg-cyan mb-8 origin-left"
+              aria-hidden
+              initial={{ scaleX: 0 }}
+              whileInView={{ scaleX: 1 }}
+              viewport={{ once: true, margin: "-80px" }}
+              transition={{ delay: 0.1, duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
+            />
+
             <h2
-              className="font-display font-bold text-ink mb-6"
+              className="font-serif font-normal leading-[0.90] text-ink mb-6"
               style={{ fontSize: "clamp(2rem, 1rem + 3vw, 3.5rem)" }}
             >
               18 años imprimiendo en Valparaíso
@@ -69,12 +81,12 @@ export function About() {
                 className="absolute inset-8 border border-dashed border-border pointer-events-none"
               />
 
-              {/* CMYK swatches */}
+              {/* CMYK swatches — editorial square, no radius */}
               <div className="grid grid-cols-2 gap-4">
                 {INK_SWATCHES.map((ink) => (
                   <div
                     key={ink.label}
-                    className={`${ink.bg} rounded-lg aspect-square w-28 flex flex-col items-center justify-center`}
+                    className={`${ink.bg} aspect-square w-28 flex flex-col items-center justify-center`}
                   >
                     <span className="font-mono text-3xl font-bold text-paper/80">
                       {ink.label}
