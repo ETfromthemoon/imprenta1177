@@ -32,7 +32,7 @@ type Service = {
   id: string;
   title: string;
   description: string;
-  emoji: string;
+  mark: string;
   size: "large" | "medium" | "small";
   accentColor: "cyan" | "magenta" | "yellow";
 };
@@ -43,7 +43,7 @@ export const SERVICES: readonly Service[] = [
     title: "Gigantografías y plotter",
     description:
       "Pendones, letreros, cajas de luz, rotulado de vehículos. Si lo ves grande en la calle, probablemente pasó por aquí.",
-    emoji: "🖼",
+    mark: "GIG",
     size: "large",
     accentColor: "cyan",
   },
@@ -52,7 +52,7 @@ export const SERVICES: readonly Service[] = [
     title: "Papelería corporativa",
     description:
       "Tarjetas de presentación, hojas membretadas, carpetas y timbres. Lo que dice quién eres antes de abrir la boca.",
-    emoji: "📋",
+    mark: "PAP",
     size: "medium",
     accentColor: "magenta",
   },
@@ -61,7 +61,7 @@ export const SERVICES: readonly Service[] = [
     title: "Formularios papel químico",
     description:
       "Boletas, facturas, guías de despacho, órdenes de compra. Los formularios que tu negocio necesita para operar.",
-    emoji: "🧾",
+    mark: "FMR",
     size: "medium",
     accentColor: "cyan",
   },
@@ -70,7 +70,7 @@ export const SERVICES: readonly Service[] = [
     title: "Diseño gráfico",
     description:
       "¿No tienes el archivo? Lo diseñamos nosotros. Logotipos, imagen corporativa, diseño de piezas. Desde cero o partiendo de lo que tienes.",
-    emoji: "✏️",
+    mark: "DSN",
     size: "medium",
     accentColor: "yellow",
   },
@@ -79,7 +79,7 @@ export const SERVICES: readonly Service[] = [
     title: "Folletos y afiches",
     description:
       "Trípticos, flyers, postales, afiches. El material impreso que reparte tu mensaje donde tú no puedes estar.",
-    emoji: "📰",
+    mark: "FOL",
     size: "small",
     accentColor: "magenta",
   },
@@ -88,7 +88,7 @@ export const SERVICES: readonly Service[] = [
     title: "Etiquetas y adhesivos",
     description:
       "Etiquetas autoadhesivas, vinilos, adhesivos. Para productos, equipos, locales o vehículos.",
-    emoji: "🏷",
+    mark: "ETQ",
     size: "small",
     accentColor: "cyan",
   },
@@ -97,7 +97,7 @@ export const SERVICES: readonly Service[] = [
     title: "Eventos",
     description:
       "Pulseras, invitaciones, diplomas. Que cada evento tenga impresos a la altura.",
-    emoji: "🎉",
+    mark: "EVT",
     size: "small",
     accentColor: "yellow",
   },

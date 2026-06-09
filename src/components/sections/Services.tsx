@@ -15,6 +15,12 @@ const accentBg = {
   yellow: "bg-yellow/5",
 } as const;
 
+const accentText = {
+  cyan: "text-cyan",
+  magenta: "text-magenta",
+  yellow: "text-yellow",
+} as const;
+
 export function Services() {
   return (
     <section id="servicios" className="py-[var(--spacing-section)] px-6 bg-paper-muted">
@@ -57,11 +63,23 @@ export function Services() {
                 duration: 0.5,
                 ease: [0.22, 1, 0.36, 1],
               }}
-              whileHover={{ y: -2, transition: { duration: 0.2 } }}
+              whileHover={{ y: -3, transition: { duration: 0.18 } }}
             >
-              <span className="text-3xl mb-4 block" aria-hidden>
-                {service.emoji}
-              </span>
+              <div
+                className={[
+                  "w-10 h-10 rounded mb-4 flex items-center justify-center border",
+                  accentBg[service.accentColor],
+                  accentBorder[service.accentColor],
+                ]
+                  .filter(Boolean)
+                  .join(" ")}
+              >
+                <span
+                  className={`font-mono text-[10px] font-bold tracking-wider ${accentText[service.accentColor]}`}
+                >
+                  {service.mark}
+                </span>
+              </div>
               <h3 className="font-display font-semibold text-lg text-ink mb-2">
                 {service.title}
               </h3>

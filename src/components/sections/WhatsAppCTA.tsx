@@ -24,7 +24,7 @@ export function WhatsAppCTA({
         className={cn(
           "group inline-flex items-center gap-2.5 rounded-full font-display font-semibold",
           "bg-magenta text-paper shadow-lg shadow-magenta/30",
-          "transition-all duration-200 hover:bg-magenta-light hover:shadow-magenta/50 hover:scale-[1.02]",
+          "transition-all duration-200 hover:bg-magenta-light hover:shadow-magenta/50 hover:scale-[1.02] active:scale-[0.97]",
           "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-magenta focus-visible:ring-offset-2",
           size === "sm" && "px-5 py-2.5 text-sm",
           size === "md" && "px-7 py-3.5 text-base",

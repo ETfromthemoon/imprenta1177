@@ -11,6 +11,15 @@ const CATEGORY_COLORS = [
   "from-yellow/15 to-cyan/10",
 ];
 
+const GALLERY_CONFIG = [
+  { span: "sm:col-span-2", aspect: "aspect-[16/9]" },
+  { span: "sm:col-span-1", aspect: "aspect-[3/4]" },
+  { span: "sm:col-span-1", aspect: "aspect-[4/3]" },
+  { span: "sm:col-span-2", aspect: "aspect-[16/9]" },
+  { span: "sm:col-span-1", aspect: "aspect-[3/4]" },
+  { span: "sm:col-span-2", aspect: "aspect-[16/9]" },
+];
+
 export function Gallery() {
   return (
     <section id="trabajos" className="py-[var(--spacing-section)] px-6 bg-paper">
@@ -37,7 +46,7 @@ export function Gallery() {
           {GALLERY_CATEGORIES.map((cat, i) => (
             <motion.div
               key={cat.id}
-              className="group relative rounded-xl overflow-hidden cursor-pointer"
+              className={`group relative rounded-xl overflow-hidden cursor-pointer ${GALLERY_CONFIG[i].span}`}
               initial={{ opacity: 0, scale: 0.96 }}
               whileInView={{ opacity: 1, scale: 1 }}
               viewport={{ once: true, margin: "-60px" }}
@@ -46,11 +55,11 @@ export function Gallery() {
                 duration: 0.5,
                 ease: [0.22, 1, 0.36, 1],
               }}
-              whileHover={{ scale: 1.02, transition: { duration: 0.2 } }}
+              whileHover={{ scale: 1.015, transition: { duration: 0.2 } }}
             >
               {/* Placeholder visual */}
               <div
-                className={`aspect-[4/3] bg-gradient-to-br ${CATEGORY_COLORS[i]} flex items-center justify-center border border-border`}
+                className={`${GALLERY_CONFIG[i].aspect} bg-gradient-to-br ${CATEGORY_COLORS[i]} flex items-center justify-center border border-border`}
               >
                 <div className="text-center px-4">
                   <p className="font-mono text-[10px] uppercase tracking-widest text-ink-soft/40 mb-2">
