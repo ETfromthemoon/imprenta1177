@@ -1,36 +1,62 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Imprenta 1177 — Landing Premium
 
-## Getting Started
+Landing page de [Imprenta 1177](https://www.imprenta1177.cl/), ubicada en Plaza Aníbal Pinto 1177, 2º piso, Valparaíso. Rediseño completo desde el sitio original a una experiencia editorial CMYK de alta gama.
 
-First, run the development server:
+**Sitio en producción:** https://imprenta1177.vercel.app
+
+---
+
+## Correr localmente
 
 ```bash
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Abre [http://localhost:3000](http://localhost:3000) en el navegador.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Republicar en Vercel
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+Cada `git push` a `master` dispara un deploy automático (integración GitHub ↔ Vercel activa).
 
-## Learn More
+Para deploy manual desde la línea de comandos:
 
-To learn more about Next.js, take a look at the following resources:
+```bash
+npx vercel --prod
+```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Stack
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+- **Next.js 15** (App Router, static generation)
+- **Tailwind CSS v4** con tokens CMYK en `oklch`
+- **motion/react** para animaciones (blur-to-focus, aurora, counters, reveals)
+- **Space Grotesk** + **Inter** + **JetBrains Mono**
+- Deploy en **Vercel**
 
-## Deploy on Vercel
+## Estructura
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+```
+src/
+├── app/
+│   ├── globals.css       # Tokens CMYK + keyframes aurora
+│   ├── layout.tsx        # MotionConfig reducedMotion="user"
+│   └── page.tsx          # Composición de secciones
+├── components/
+│   ├── animations/       # Aurora, SplitText, Spotlight, Magnetic, etc.
+│   ├── sections/         # Hero, StatsBar, Services, Gallery, …
+│   └── ui/               # Button, Sheet (shadcn/ui)
+└── lib/
+    └── constants.ts      # Datos reales: teléfonos, horarios, métricas
+```
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## Galería — reemplazar placeholders
+
+Las tarjetas de galería usan degradados CSS como placeholders. Para agregar fotos reales:
+
+1. Optimizar imágenes a **WebP ≤ 500 KB** (`sharp` recomendado)
+2. Colocar en `public/gallery/`
+3. En `src/components/sections/Gallery.tsx`, reemplazar el `div` de placeholder por `<Image>` de Next.js con `width` y `height` explícitos
+
+## Contacto y datos
+
+Los datos de contacto, horarios y métricas están centralizados en [`src/lib/constants.ts`](src/lib/constants.ts). Editar ahí para actualizar en toda la página.
