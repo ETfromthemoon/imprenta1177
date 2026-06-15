@@ -9,6 +9,8 @@ const NAV_LINKS = [
   { href: "#contacto", label: "Contacto" },
 ];
 
+const CTA_LINK = { href: "#cotizar", label: "Cotizar" };
+
 export function Nav() {
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
@@ -46,9 +48,18 @@ export function Nav() {
           ))}
         </ul>
 
-        {/* Right: Menú label + cyan mark */}
-        <div className="hidden md:flex items-center gap-2">
-          <span className="font-sans text-[14px] text-ink-soft">Menú</span>
+        {/* Right: CTA Cotizar + mark */}
+        <div className="hidden md:flex items-center gap-4">
+          <Link
+            href={CTA_LINK.href}
+            className="font-display font-bold text-[13px] px-4 py-1.5 rounded transition-colors"
+            style={{
+              backgroundColor: "var(--color-magenta)",
+              color: "var(--color-paper)",
+            }}
+          >
+            {CTA_LINK.label}
+          </Link>
           <span className="text-cyan font-bold text-base leading-none select-none" aria-hidden>‖</span>
         </div>
 
@@ -79,6 +90,19 @@ export function Nav() {
                 </Link>
               </li>
             ))}
+            <li>
+              <Link
+                href={CTA_LINK.href}
+                onClick={() => setMenuOpen(false)}
+                className="inline-block font-display font-bold text-sm px-5 py-2 rounded transition-colors"
+                style={{
+                  backgroundColor: "var(--color-magenta)",
+                  color: "var(--color-paper)",
+                }}
+              >
+                {CTA_LINK.label}
+              </Link>
+            </li>
           </ul>
         </div>
       )}

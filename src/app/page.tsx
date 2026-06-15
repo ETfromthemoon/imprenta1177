@@ -4,6 +4,7 @@ import { StatsBar } from "@/components/sections/StatsBar";
 import { Services } from "@/components/sections/Services";
 import { Gallery } from "@/components/sections/Gallery";
 import { HowWeWork } from "@/components/sections/HowWeWork";
+import { QuoteForm } from "@/components/sections/QuoteForm";
 import { About } from "@/components/sections/About";
 import { Contact } from "@/components/sections/Contact";
 import { CTAFinal } from "@/components/sections/CTAFinal";
@@ -25,6 +26,7 @@ export default function Home() {
         <Services />
         <Gallery />
         <HowWeWork />
+        <QuoteForm />
         <About />
         <Contact />
         <CTAFinal />
